@@ -1,0 +1,41 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix xml: <http://www.w3.org/XML/1998/namespace>.
+@prefix dbpedia: <http://dbpedia.org/property/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix oddlinker: <http://data.linkedmdb.org/resource/oddlinker/>.
+@prefix db: <http://data.linkedmdb.org/resource/>.
+@prefix movie: <http://data.linkedmdb.org/resource/movie/>.
+@prefix map: <file:///C:/d2r-server-0.4/mapping.n3#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix d2r: <http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix dc: <http://purl.org/dc/terms/>.
+
+<http://data.linkedmdb.org/data/country/US> rdfs:comment """Contents of this file may include content from 
+		      FreeBase (http://www.freebase.com) or Wikipedia 
+		      (http://www.wikipedia.org) licensed under CC-BY
+		      (http://www.freebase.com/view/common/license/cc_attribution_25)
+		      or GFDL (http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License). 
+		      Refer to http://www.linkedmdb.org:8080/Main/Licensing for more details.""";
+                                            rdfs:label "RDF Description of United States (Country)";
+                                            foaf:primaryTopic <http://data.linkedmdb.org/resource/country/US>.
+<http://data.linkedmdb.org/resource/country/US> movie:country_areaInSqKm "9629091"^^xsd:double;
+                                                movie:country_capital "Washington";
+                                                movie:country_continent "NA";
+                                                movie:country_currency "USD";
+                                                movie:country_fips_code "US";
+                                                movie:country_id "221"^^xsd:int;
+                                                movie:country_iso_alpha2 "US";
+                                                movie:country_iso_alpha3 "USA";
+                                                movie:country_iso_numeric "840";
+                                                movie:country_languages "en-US,es-US,haw";
+                                                movie:country_name "United States";
+                                                movie:country_population "303824000";
+                                                a movie:country;
+                                                rdfs:label "United States (Country)";
+                                                owl:sameAs <http://sws.geonames.org/6252001/>.
+<http://data.linkedmdb.org/resource/film/39306> movie:country <http://data.linkedmdb.org/resource/country/US>.
+<http://data.linkedmdb.org/resource/interlink/56520> oddlinker:link_source <http://data.linkedmdb.org/resource/country/US>.
+<http://sws.geonames.org/6252001/> rdfs:seeAlso <http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fsws.geonames.org%2F6252001%2F%3E>.

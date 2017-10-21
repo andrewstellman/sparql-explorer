@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:dbpedia="http://dbpedia.org/property/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:oddlinker="http://data.linkedmdb.org/resource/oddlinker/"
+    xmlns:db="http://data.linkedmdb.org/resource/"
+    xmlns:movie="http://data.linkedmdb.org/resource/movie/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:map="file:/C:/d2r-server-0.4/mapping.n3#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:d2r="http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="http://data.linkedmdb.org/data/country/AD">
+    <rdfs:comment>Contents of this file may include content from 
+		      FreeBase (http://www.freebase.com) or Wikipedia 
+		      (http://www.wikipedia.org) licensed under CC-BY
+		      (http://www.freebase.com/view/common/license/cc_attribution_25)
+		      or GFDL (http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License). 
+		      Refer to http://www.linkedmdb.org:8080/Main/Licensing for more details.</rdfs:comment>
+    <rdfs:label>RDF Description of Andorra (Country)</rdfs:label>
+    <foaf:primaryTopic>
+      <movie:country rdf:about="http://data.linkedmdb.org/resource/country/AD">
+        <movie:country_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >121</movie:country_id>
+        <movie:country_capital>Andorra la Vella</movie:country_capital>
+        <movie:country_currency>EUR</movie:country_currency>
+        <movie:country_iso_alpha3>AND</movie:country_iso_alpha3>
+        <movie:country_areaInSqKm rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >468</movie:country_areaInSqKm>
+        <movie:country_iso_numeric>20</movie:country_iso_numeric>
+        <movie:country_languages>ca,fr-AD,pt</movie:country_languages>
+        <movie:country_name>Andorra</movie:country_name>
+        <movie:country_continent>EU</movie:country_continent>
+        <owl:sameAs>
+          <rdf:Description rdf:about="http://sws.geonames.org/3041565/">
+            <rdfs:seeAlso rdf:resource="http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fsws.geonames.org%2F3041565%2F%3E"/>
+          </rdf:Description>
+        </owl:sameAs>
+        <movie:country_iso_alpha2>AD</movie:country_iso_alpha2>
+        <rdfs:label>Andorra (Country)</rdfs:label>
+        <movie:country_population>72000</movie:country_population>
+        <movie:country_fips_code>AN</movie:country_fips_code>
+      </movie:country>
+    </foaf:primaryTopic>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.linkedmdb.org/resource/interlink/56420">
+    <oddlinker:link_source rdf:resource="http://data.linkedmdb.org/resource/country/AD"/>
+  </rdf:Description>
+</rdf:RDF>

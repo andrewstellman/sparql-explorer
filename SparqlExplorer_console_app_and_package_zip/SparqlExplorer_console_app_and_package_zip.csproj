@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3396182B-DAA7-4E7F-BA0D-0C88E27D5B8E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sparqlex</RootNamespace>
+    <AssemblyName>sparqlex</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="CommandLine">
+      <HintPath>lib\CommandLine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Options.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SparqlExplorer.csproj">
+      <Project>{832f625d-d315-4b73-b60e-807c86aa6b83}</Project>
+      <Name>SparqlExplorer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <!-- Import MS Build Community Tasks and MSBuild Extension Tasks from lib folder -->
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>.\</MSBuildCommunityTasksPath>
+    <ExtensionTasksPath>.\</ExtensionTasksPath>
+    <BinaryFilename>$(OutputPath)SparqlExplorer.exe</BinaryFilename>
+  </PropertyGroup>
+  <Import Project="lib\MSBuild.Community.Tasks.Targets" />
+  <Import Project="$(ExtensionTasksPath)lib\MSBuild.ExtensionPack.tasks" />
+  <Target Name="AfterBuild">
+    <MSBuild.ExtensionPack.Framework.Assembly TaskAction="GetInfo" NetAssembly="$(BinaryFilename)">
+      <Output TaskParameter="OutputItems" ItemName="Info" />
+    </MSBuild.ExtensionPack.Framework.Assembly>
+    <PropertyGroup>
+      <ZipFilename>output\SparqlExplorer_%(Info.AssemblyVersion)</ZipFilename>
+    </PropertyGroup>
+    <Message Text="Packaging $(BinaryFilename) into $(ZipFilename)" />
+    <PropertyGroup>
+      <ZipTargetFolder>$(OutputPath)SparqlExplorer_%(Info.AssemblyVersion)\</ZipTargetFolder>
+    </PropertyGroup>
+    <MakeDir Directories="$(ZipTargetFolder)" />
+    <ItemGroup>
+      <CopyFiles Include="$(OutputPath)SparqlExplorer.exe" />
+      <CopyFiles Include="$(OutputPath)sparqlex.exe" />
+      <CopyFiles Include="$(OutputPath)dotNetRDF.dll" />
+      <CopyFiles Include="$(OutputPath)dotNetRDF.pdb" />
+      <CopyFiles Include="$(OutputPath)dotNetRDF.xml" />
+      <CopyFiles Include="$(OutputPath)HtmlAgilityPack.dll" />
+      <CopyFiles Include="$(OutputPath)Newtonsoft.Json.dll" />
+      <CopyFiles Include="$(OutputPath)VDS.Common.dll" />
+      <CopyFiles Include="$(OutputPath)CommandLine.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(CopyFiles)" DestinationFolder="$(ZipTargetFolder)">
+      <Output TaskParameter="CopiedFiles" ItemName="CopiedFiles" />
+    </Copy>
+    <MakeDir Directories="$(ZipTargetFolder)\Templates" />
+    <ItemGroup>
+      <CopyTemplateFiles Include="$(OutputPath)Templates\*.txt" />
+    </ItemGroup>
+    <Copy SourceFiles="@(CopyTemplateFiles)" DestinationFolder="$(ZipTargetFolder)\Templates">
+      <Output TaskParameter="CopiedFiles" ItemName="CopiedTemplateFiles" />
+    </Copy>
+    <Zip ZipFileName="..\package\SparqlExplorer_%(Info.AssemblyVersion).zip" WorkingDirectory="$(OutputPath)" Files="@(CopiedFiles);@(CopiedTemplateFiles)" />
+    <RemoveDir Directories="$(ZipTargetFolder)\Templates" />
+    <RemoveDir Directories="$(ZipTargetFolder)" />
+  </Target>
+</Project>

@@ -1,0 +1,345 @@
+{
+  "http://data.linkedmdb.org/data/film/7358": {
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "value": "Contents of this file may include content from \n\t\t      FreeBase (http://www.freebase.com) or Wikipedia \n\t\t      (http://www.wikipedia.org) licensed under CC-BY\n\t\t      (http://www.freebase.com/view/common/license/cc_attribution_25)\n\t\t      or GFDL (http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License). \n\t\t      Refer to http://www.linkedmdb.org:8080/Main/Licensing for more details.",
+        "type": "literal"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "value": "RDF Description of Parents",
+        "type": "literal"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/primaryTopic": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/director/10033": {
+    "http://xmlns.com/foaf/0.1/made": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/film/15737": {
+    "http://data.linkedmdb.org/resource/movie/sequel": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/film/7358": {
+    "http://data.linkedmdb.org/resource/movie/actor": [
+      {
+        "value": "http://data.linkedmdb.org/resource/actor/31708",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/actor/33889",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/actor/38148",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/actor/5845",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/cinematographer": [
+      {
+        "value": "http://data.linkedmdb.org/resource/cinematographer/136",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/cinematographer/989",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/country": [
+      {
+        "value": "http://data.linkedmdb.org/resource/country/CA",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/director": [
+      {
+        "value": "http://data.linkedmdb.org/resource/director/10033",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/editor": [
+      {
+        "value": "http://data.linkedmdb.org/resource/editor/1098",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/editor/1754",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/film_cut": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film_cut/4795",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/filmid": [
+      {
+        "value": "7358",
+        "datatype": "http://www.w3.org/2001/XMLSchema#int",
+        "type": "literal"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/genre": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film_genre/17",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/initial_release_date": [
+      {
+        "value": "1989-01-27",
+        "type": "literal"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/language": [
+      {
+        "value": "http://www.lingvoj.org/lingvo/en",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/music_contributor": [
+      {
+        "value": "http://data.linkedmdb.org/resource/music_contributor/4508",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/music_contributor/5148",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/performance": [
+      {
+        "value": "http://data.linkedmdb.org/resource/performance/22404",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/performance/22405",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/performance/22406",
+        "type": "uri"
+      },
+      {
+        "value": "http://data.linkedmdb.org/resource/performance/22407",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/prequel": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/15737",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/producer": [
+      {
+        "value": "http://data.linkedmdb.org/resource/producer/3937",
+        "type": "uri"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/runtime": [
+      {
+        "value": "81",
+        "type": "literal"
+      }
+    ],
+    "http://data.linkedmdb.org/resource/movie/writer": [
+      {
+        "value": "http://data.linkedmdb.org/resource/writer/4044",
+        "type": "uri"
+      }
+    ],
+    "http://dbpedia.org/property/hasPhotoCollection": [
+      {
+        "value": "http://www4.wiwiss.fu-berlin.de/flickrwrappr/photos/Parents_(film)",
+        "type": "uri"
+      }
+    ],
+    "http://purl.org/dc/terms/date": [
+      {
+        "value": "1989-01-27",
+        "type": "literal"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "value": "Parents",
+        "type": "literal"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+      {
+        "value": "http://data.linkedmdb.org/resource/movie/film",
+        "type": "uri"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "value": "Parents",
+        "type": "literal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+        "value": "http://dbpedia.org/resource/Parents_%28film%29",
+        "type": "uri"
+      },
+      {
+        "value": "http://mpii.de/yago/resource/Parents_%28film%29",
+        "type": "uri"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/based_near": [
+      {
+        "value": "http://sws.geonames.org/6251999/",
+        "type": "uri"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/page": [
+      {
+        "value": "http://www.freebase.com/view/guid/9202a8c04000641f8000000000c6fa1b",
+        "type": "uri"
+      },
+      {
+        "value": "http://www.imdb.com/title/tt0098068/",
+        "type": "uri"
+      },
+      {
+        "value": "http://www.rottentomatoes.com/alias?type=imdbid&s=0098068/",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/interlink/140219": {
+    "http://data.linkedmdb.org/resource/oddlinker/link_source": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/interlink/21880": {
+    "http://data.linkedmdb.org/resource/oddlinker/link_source": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/interlink/3347": {
+    "http://data.linkedmdb.org/resource/oddlinker/link_source": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/interlink/40413": {
+    "http://data.linkedmdb.org/resource/oddlinker/link_source": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/interlink/69613": {
+    "http://data.linkedmdb.org/resource/oddlinker/link_source": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://data.linkedmdb.org/resource/interlink/72794": {
+    "http://data.linkedmdb.org/resource/oddlinker/link_source": [
+      {
+        "value": "http://data.linkedmdb.org/resource/film/7358",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://dbpedia.org/resource/Parents_%28film%29": {
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "value": "http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FParents_%2528film%2529%3E",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://mpii.de/yago/resource/Parents_%28film%29": {
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "value": "http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fmpii.de%2Fyago%2Fresource%2FParents_%2528film%2529%3E",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://sws.geonames.org/6251999/": {
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "value": "http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fsws.geonames.org%2F6251999%2F%3E",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://www.freebase.com/view/guid/9202a8c04000641f8000000000c6fa1b": {
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "value": "http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fwww.freebase.com%2Fview%2Fguid%2F9202a8c04000641f8000000000c6fa1b%3E",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://www.imdb.com/title/tt0098068/": {
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "value": "http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt0098068%2F%3E",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://www.lingvoj.org/lingvo/en": {
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "value": "http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fwww.lingvoj.org%2Flingvo%2Fen%3E",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://www.rottentomatoes.com/alias?type=imdbid&s=0098068/": {
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "value": "http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fwww.rottentomatoes.com%2Falias%3Ftype%3Dimdbid%26s%3D0098068%2F%3E",
+        "type": "uri"
+      }
+    ]
+  },
+  "http://www4.wiwiss.fu-berlin.de/flickrwrappr/photos/Parents_(film)": {
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "value": "http://data.linkedmdb.org/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fwww4.wiwiss.fu-berlin.de%2Fflickrwrappr%2Fphotos%2FParents_%28film%29%3E",
+        "type": "uri"
+      }
+    ]
+  }
+}

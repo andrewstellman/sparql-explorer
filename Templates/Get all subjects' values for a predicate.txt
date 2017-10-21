@@ -1,0 +1,5 @@
+﻿SELECT ?subject ?value
+WHERE {
+    ?subject ~~predicate~~ ?value .
+}
+ORDER BY ?subject ?value

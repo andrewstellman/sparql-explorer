@@ -1,0 +1,6 @@
+﻿SELECT ?property ?hasValue ?isValueOf
+WHERE {
+    { ~~subject~~ ?property ?hasValue }
+    UNION
+    { ?isValueOf ?property ~~subject~~ }
+}

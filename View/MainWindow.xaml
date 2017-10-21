@@ -1,0 +1,121 @@
+﻿<Window x:Class="SparqlExplorer.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:SparqlExplorer.View"  
+        xmlns:viewModel="clr-namespace:SparqlExplorer.ViewModel"
+        Title="SPARQL Explorer" Height="800" Width="750">
+    
+    <Window.Resources>
+        <viewModel:MainWindowViewModel x:Key="viewModel"/>
+        <viewModel:BooleanVisibilityConverter x:Key="booleanVisibilityConverter"/>
+        
+        <Style x:Key="linkButtonStyle" TargetType="Button"
+               BasedOn="{StaticResource ResourceKey={x:Type Button}}">
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          VerticalAlignment="Center">
+                            <ContentPresenter.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextDecorations" Value="Underline"/>
+                                </Style>
+                            </ContentPresenter.Resources>
+                        </ContentPresenter>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </Window.Resources>
+    
+    <Grid DataContext="{StaticResource ResourceKey=viewModel}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Click="AboutClick">About SPARQL Explorer</Button>
+        
+        <StackPanel Margin="0,10,0,10">
+            <Label HorizontalAlignment="Left">REST API URL to Query</Label>
+            <TextBox Text="{Binding QueryUrl, Mode=TwoWay}" HorizontalAlignment="Stretch" Margin="5,0,5,5"/>
+            <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                <Button x:Name="QueryRestApi" HorizontalAlignment="Left" Margin="0,0,10,0" Click="QueryRestApiButton_Click">Query the REST API and retrieve resuts</Button>
+                <Button x:Name="LoadGraphFromFile" HorizontalAlignment="Left" Click="LoadGraphFromFileButton_Click">Load a graph from a file</Button>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Style="{StaticResource ResourceKey=linkButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Content="{Binding X509CertificateLinkText}" Click="X509CertificateLinkClick"
+                Margin="0,0,5,12"/>
+        
+        <TextBlock Grid.Row="2" FontWeight="Bold" FontSize="14">Query the API results with SPARQL</TextBlock>
+        <TextBox HorizontalAlignment="Stretch"  Margin="5,5" Grid.Row="3" BorderThickness="1"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 Text="{Binding SparqlQuery}"/>
+
+        <view:ComboBoxWithCueBanner x:Name="templateSelector" Grid.Row="3" Margin="0,10,10,0" 
+                                    HorizontalAlignment="Right" VerticalAlignment="Top" Width="300"
+                                    CueBanner="Use the template editor to generate a SPARQL query" SelectionChanged="TemplateSelectionChanged" 
+                                    Visibility="{Binding CanRunSparqlQuery, Converter={StaticResource booleanVisibilityConverter}}"/>
+
+        <view:SparqlTemplateEditor x:Name="templateEditor" Grid.Row="3" 
+                                   Background="White" BorderBrush="Gray" BorderThickness="1" 
+                                   Visibility="Hidden" Margin="5,5"
+                                   Ok="TemplateEditor_Ok" Cancel="TemplateEditor_Cancel"
+                                   />
+
+        <StackPanel Grid.Row="4"  Orientation="Horizontal" Margin="0,10,0,10">
+            <Label FontSize="14" FontWeight="Bold" Content="{Binding GraphLoadedMessage}" Margin="0,0,10,0" />
+            <Button Style="{StaticResource ResourceKey=linkButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Click="CopyPrefixesToClipboardClick">Copy prefixes to clipboard</Button>
+        </StackPanel>
+
+        <Button HorizontalAlignment="Left" Grid.Row="5" Margin="5,0,0,5"
+                IsEnabled="{Binding CanRunSparqlQuery}" Click="ExecuteSparqlButton_Click">Execute SPARQL query against retrieved REST API data</Button>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="5" Margin="5,0,5,5">
+            <Button Margin="0,0,10,0" IsEnabled="{Binding CanRunSparqlQuery}" Click="SaveGraphClick">Save Graph</Button>
+            <Button IsEnabled="{Binding ResultsLoaded}" Click="SaveSparqlQueryResultsClick">Save SPARQL Query Results</Button>
+        </StackPanel>
+                    
+        
+        <TextBlock Grid.Row="6" Margin="5,10,0,5">
+            <Run>Results</Run>
+            <Run Text="{Binding RowsShowing, Mode=OneWay}"/>
+        </TextBlock>
+           
+        
+        <ListView Grid.Row="7" ItemsSource="{Binding QueryResults}" SelectionChanged="listView_SelectionChanged"
+                  x:Name="listView" Margin="5,0,5,5">
+            <ListBox.ContextMenu>
+                <ContextMenu x:Name="listViewContextMenu"/>
+            </ListBox.ContextMenu>
+            <ListView.View>
+                <GridView x:Name="listViewView"/>
+            </ListView.View>
+        </ListView>
+        
+        <Button Grid.Row="8" Margin="5,0,0,3" Style="{StaticResource ResourceKey=linkButtonStyle}" Click="NavigateLinkFromButton">http://sparqlexplorer.codeplex.com</Button>
+        <Button Grid.Row="8" Margin="0,0,5,3" HorizontalAlignment="Right" Style="{StaticResource ResourceKey=linkButtonStyle}" Click="NavigateLinkFromButton">http://www.stellman-greene.com</Button>
+
+    </Grid>
+</Window>

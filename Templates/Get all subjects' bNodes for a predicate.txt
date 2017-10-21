@@ -1,0 +1,10 @@
+﻿SELECT ?s ?bNode ?p ?o
+WHERE {
+    {
+        ?s ~~predicate~~ ?bNode .
+        ?bNode ?p ?o .
+    } UNION {
+        ?s ~~predicate~~ ?bNode .
+        ?s ?p ?bNode .
+    }
+}

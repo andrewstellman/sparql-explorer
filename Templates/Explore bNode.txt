@@ -1,0 +1,5 @@
+﻿SELECT ?p ?o
+{
+    ~~subject~~ ~~predicate~~ ?bNode .
+	?bNode ?p ?o .
+}
